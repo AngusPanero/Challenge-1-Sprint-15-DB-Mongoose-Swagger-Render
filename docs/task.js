@@ -36,7 +36,7 @@ module.exports = {
         "/id/{_id}": {
         put: {
         tags: {
-        Tasks: "Update a user",
+        Tasks: "Update a Task",
         },
         description: "Update Task",
         operationId: "updateTask",
@@ -51,18 +51,47 @@ module.exports = {
         },
         ],
         requestBody: {
-        content: {
-            "application/json": {
-            schema: { $ref: "#/components/schemas/User" },
+            content: {
+                "application/json": {
+            schema: { $ref: "#/components/schemas/Task" },
             },
         },
         },
         responses: {
-        200: { description: "Task updated successfully" },
-        500: { description: "Server error" },
+            200: { description: "Task updated successfully" },
+            500: { description: "Server error" },
+            },
         },
     },
+    "/delete": {
+        put: {
+        tags: {
+        Tasks: "delete a Task",
+        },
+        description: "Delete Task",
+        operationId: "deleteTask",
+        parameters: [
+        {
+            name: "delete",
+            in: "path",
+            schema: {
+                $ref: "#/components/schemas/delete",
+            },
+            description: "Id of Task to be delete",
+        },
+        ],
+        requestBody: {
+            content: {
+                "application/json": {
+            schema: { $ref: "#/components/schemas/Task" },
+            },
+        },
+        },
+        responses: {
+            200: { description: "Task updated successfully" },
+            500: { description: "Server error" },
+            },
+        },
     },
-
     },
 };
