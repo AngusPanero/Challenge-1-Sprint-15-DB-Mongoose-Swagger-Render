@@ -73,7 +73,7 @@ router.put("/markAsCompleted/:_id", async(req, res) => {
 
     //DELETE TASK
 
-    router.delete("/id/:_id", async(req, res) => {
+    router.delete("/delete/:_id", async(req, res) => {
         try {
             const task = await Task.findByIdAndDelete(req.params._id);
             res.send({ message: "task deleted", task });

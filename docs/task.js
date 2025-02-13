@@ -63,8 +63,8 @@ module.exports = {
             },
         },
     },
-    "/delete": {
-        put: {
+    "/id/{_id}": {
+        delete: {
         tags: {
         Tasks: "delete a Task",
         },
@@ -72,10 +72,10 @@ module.exports = {
         operationId: "deleteTask",
         parameters: [
         {
-            name: "delete",
+            name: "_id",
             in: "path",
             schema: {
-                $ref: "#/components/schemas/delete",
+                $ref: "#/components/schemas/_id",
             },
             description: "Id of Task to be delete",
         },
